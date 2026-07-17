@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef631a9009ca8e4b959cc87cab57a31, type: 3}
+  m_Name: ResidentProfile_Belle
+  m_EditorClassIdentifier: 
+  residentId: resident_belle
+  displayName: "Maribel \u201CBelle\u201D Laurent-Salazar"
+  portrait: {fileID: 0}
+  summary: '47 years old
+
+    Filipina with French and Spanish family heritage
+
+    Beauty
+    salon owner
+
+    
+
+    Dramatic, expressive, romantic, and involved in many
+    fandoms.'
+  address: '7 Silver Screen Road
+
+    Hiraya Town'
+  aliases: 'Maribel Laurent-Salazar
+
+    Belle Laurent-Salazar
+
+    Belle Salazar
+
+    Madame
+    Belle'
+  likes: 'Romantic films
+
+    Fan clubs
+
+    Decorative stationery
+
+    Celebrity
+    news
+
+    Dramatic gestures'
+  dislikes: 'Plain envelopes
+
+    Unanswered fan mail
+
+    Incorrect postage
+
+    Returned
+    letters'
+  deliveryNotes: 'Her mail commonly includes hearts, decorative paper, perfume marks,
+    or fan-club logos.
+
+    
+
+    She frequently sends fan mail that returns because
+    of an incorrect address or insufficient postage.'

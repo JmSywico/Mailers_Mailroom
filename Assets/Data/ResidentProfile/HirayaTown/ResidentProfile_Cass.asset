@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef631a9009ca8e4b959cc87cab57a31, type: 3}
+  m_Name: ResidentProfile_Cass
+  m_EditorClassIdentifier: 
+  residentId: resident_cass
+  displayName: "Cassidy \u201CCass\u201D Navarro"
+  portrait: {fileID: 0}
+  summary: '21 years old
+
+    Filipino-American
+
+    Multimedia arts student
+
+    
+
+    Creative,
+    energetic, curious, and always waiting for another delivery.'
+  address: '12 Newbridge Avenue
+
+    Hiraya Town'
+  aliases: 'Cassidy Navarro
+
+    Cass Navarro
+
+    CassNova'
+  likes: 'Video games
+
+    Collectible figures
+
+    Trading cards
+
+    Fandom
+    merchandise
+
+    Colorful stickers'
+  dislikes: 'Damaged packages
+
+    Missing parcel updates
+
+    Counterfeit collectibles
+
+    Unwanted
+    spoilers'
+  deliveryNotes: 'Some online orders use the username CassNova.
+
+    
+
+    Her
+    letters and parcels frequently have colorful stickers, stars, game symbols, or
+    fandom logos.
+
+    
+
+    Do not confuse 12 Newbridge Avenue with 21 Newbridge
+    Avenue.'

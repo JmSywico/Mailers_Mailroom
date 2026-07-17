@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef631a9009ca8e4b959cc87cab57a31, type: 3}
+  m_Name: ResidentProfile_Bash
+  m_EditorClassIdentifier: 
+  residentId: resident_bash
+  displayName: "Sebastian \u201CBash\u201D Cortez"
+  portrait: {fileID: 0}
+  summary: '39 years old
+
+    Chinese-Filipino
+
+    Corporate legal consultant
+
+    
+
+    Formal,
+    polite, exhausted, and almost always busy.'
+  address: '4 Sterling Street
+
+    Hiraya Town'
+  aliases: 'Sebastian Cortez
+
+    Bash Cortez
+
+    Mr. Cortez
+
+    S.C.'
+  likes: 'Orderly documents
+
+    Strong coffee
+
+    Efficient service
+
+    Quiet
+    evenings
+
+    Well-organized schedules'
+  dislikes: 'Delayed documents
+
+    Misfiled paperwork
+
+    Unnecessary meetings
+
+    Disorganized
+    packages'
+  deliveryNotes: 'He mostly receives contracts, confidential files, express documents,
+    and office supplies.
+
+
+    Some personal packages may only use the initials S.C.
+
+
+    His
+    unclaimed packages often begin to stack.'

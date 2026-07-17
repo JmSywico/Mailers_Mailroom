@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bef631a9009ca8e4b959cc87cab57a31, type: 3}
+  m_Name: ResidentProfile_Pino
+  m_EditorClassIdentifier: 
+  residentId: resident_pino
+  displayName: "Rufino \u201CPino\u201D Everhart"
+  portrait: {fileID: 0}
+  summary: '74 years old
+
+    Filipino-British
+
+    Retired history teacher
+
+    
+
+    Funny,
+    forgetful, talkative, and usually surrounded by papers.'
+  address: '14 Old Mill Street
+
+    Hiraya Town'
+  aliases: 'Rufino Everhart
+
+    Pino Everhart
+
+    Mr. Everhart
+
+    Sir Pino'
+  likes: 'Handwritten letters
+
+    Old stamps
+
+    Postcards
+
+    History books
+
+    Long
+    conversations'
+  dislikes: 'Being rushed
+
+    Throwing away old keepsakes
+
+    Impersonal messages'
+  deliveryNotes: 'His mail may use formal names, nicknames, or an old teaching title.
+
+    
+
+    Letters
+    often have handwritten addresses, vintage stamps, or historical imagery.'
