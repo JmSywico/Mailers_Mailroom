@@ -2281,39 +2281,39 @@ MonoBehaviour:
   - title: Welcome to the Post Office
     body: 'Welcome to the Hiraya Town Post Office.
 
-      
 
-      Our town may
-      be small, but every letter that passes through this room carries a small part
-      of someone''s day.
 
-      
+      Our town may be small,
+      but every letter that passes through this room carries a small part of someone''s
+      day.
 
-      Take your time, read carefully, and help
-      every piece of mail find its way home.'
+
+
+      Take your time, read carefully, and help every piece of mail
+      find its way home.'
   - title: A Day Behind the Desk
     body: 'Each morning begins with a fresh stack of letters and parcels.
 
-      
+
 
       Look
       over each item before placing it with the day''s deliveries. Names, addresses,
       handwriting, stickers, and other markings may all help you understand where
       it belongs.
 
-      
 
-      There is no need to rush. Care is more important
-      than speed.'
+
+      There is no need to rush. Care is more important than
+      speed.'
   - title: Names Are Not Always Simple
     body: 'People are sometimes known by more than one name.
 
-      
 
-      A letter
-      may use a nickname, an old surname, a username, or only a person''s initials.
 
-      
+      A letter may
+      use a nickname, an old surname, a username, or only a person''s initials.
+
+
 
       When
       something seems unfamiliar, the Hiraya Town Resident Directory may contain
@@ -2322,16 +2322,15 @@ MonoBehaviour:
     body: 'Some mail may carry an incomplete address, an old address, or another
       problem that prevents normal delivery.
 
-      
 
-      Parcels should be placed
-      in the package area when they require separate handling.
 
-      
+      Parcels should be placed in
+      the package area when they require separate handling.
 
-      Mail
-      that cannot continue to its destination belongs in the outgoing and return
-      tray.'
+
+
+      Mail that cannot
+      continue to its destination belongs in the outgoing and return tray.'
 --- !u!224 &416974745
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5159,7 +5158,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 0dc227bd8a038c44eb33c62cd9b26d16, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -5938,7 +5937,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: 5d358c593d627014b817636288e80fa9, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -8744,14 +8743,14 @@ MonoBehaviour:
 
     Filipino-British
 
-    Retired history
-    teacher
+    Retired history teacher
 
-    
+
 
     ADDRESS
 
-    14 Old Mill Street
+    14
+    Old Mill Street
 
     Hiraya Town'
   m_isRightToLeft: 0
@@ -10360,7 +10359,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: a710cfcebf93eed4fa1cad9c70d591e5, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
