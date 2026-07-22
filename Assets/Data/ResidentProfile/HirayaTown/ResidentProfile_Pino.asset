@@ -21,7 +21,7 @@ MonoBehaviour:
 
     Retired history teacher
 
-    
+
 
     Funny,
     forgetful, talkative, and usually surrounded by papers.'
@@ -52,7 +52,9 @@ MonoBehaviour:
     Impersonal messages'
   deliveryNotes: 'His mail may use formal names, nicknames, or an old teaching title.
 
-    
+
 
     Letters
     often have handwritten addresses, vintage stamps, or historical imagery.'
+  likedStampThemes: 0000000003000000
+  dislikedStampThemes: 01000000

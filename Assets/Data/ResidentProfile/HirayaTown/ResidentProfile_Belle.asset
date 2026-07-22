@@ -22,10 +22,9 @@ MonoBehaviour:
     Beauty
     salon owner
 
-    
 
-    Dramatic, expressive, romantic, and involved in many
-    fandoms.'
+
+    Dramatic, expressive, romantic, and involved in many fandoms.'
   address: '7 Silver Screen Road
 
     Hiraya Town'
@@ -58,7 +57,9 @@ MonoBehaviour:
   deliveryNotes: 'Her mail commonly includes hearts, decorative paper, perfume marks,
     or fan-club logos.
 
-    
+
 
     She frequently sends fan mail that returns because
     of an incorrect address or insufficient postage.'
+  likedStampThemes: 0200000001000000
+  dislikedStampThemes: 04000000

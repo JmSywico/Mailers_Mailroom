@@ -6,9 +6,13 @@ public sealed class MailInspectable :
     MonoBehaviour,
     IPointerClickHandler
 {
-    [Header("Controller")]
+    [Header("Inspection")]
     [SerializeField]
     private MailInspectionController inspectionController;
+
+    [Header("Stamping")]
+    [SerializeField]
+    private StampSelectionController stampSelectionController;
 
     [Header("Inspection Information")]
     [SerializeField]
@@ -25,12 +29,51 @@ public sealed class MailInspectable :
     [SerializeField]
     private string details;
 
+    private DraggableMailItem draggableMailItem;
+    private StampableMailItem stampableMailItem;
+
+    private void Awake()
+    {
+        draggableMailItem =
+            GetComponent<DraggableMailItem>();
+
+        stampableMailItem =
+            GetComponent<StampableMailItem>();
+    }
+
     public void OnPointerClick(
         PointerEventData eventData)
     {
         if (eventData.button !=
             PointerEventData.InputButton.Left)
         {
+            return;
+        }
+
+        if (draggableMailItem != null &&
+            draggableMailItem.IsSorted)
+        {
+            return;
+        }
+
+        if (stampSelectionController != null &&
+            stampSelectionController
+                .HasSelectedStamp &&
+            stampableMailItem != null)
+        {
+            bool receivedStamp =
+                stampSelectionController
+                    .TryConsumeSelectedStamp(
+                        out StampTheme stampTheme
+                    );
+
+            if (receivedStamp)
+            {
+                stampableMailItem.ApplyStamp(
+                    stampTheme
+                );
+            }
+
             return;
         }
 

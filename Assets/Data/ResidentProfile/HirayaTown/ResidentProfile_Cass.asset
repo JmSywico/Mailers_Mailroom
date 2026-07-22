@@ -21,7 +21,7 @@ MonoBehaviour:
 
     Multimedia arts student
 
-    
+
 
     Creative,
     energetic, curious, and always waiting for another delivery.'
@@ -39,10 +39,10 @@ MonoBehaviour:
 
     Trading cards
 
-    Fandom
-    merchandise
+    Fandom merchandise
 
-    Colorful stickers'
+    Colorful
+    stickers'
   dislikes: 'Damaged packages
 
     Missing parcel updates
@@ -53,13 +53,14 @@ MonoBehaviour:
     spoilers'
   deliveryNotes: 'Some online orders use the username CassNova.
 
-    
 
-    Her
-    letters and parcels frequently have colorful stickers, stars, game symbols, or
-    fandom logos.
 
-    
+    Her letters
+    and parcels frequently have colorful stickers, stars, game symbols, or fandom
+    logos.
 
-    Do not confuse 12 Newbridge Avenue with 21 Newbridge
-    Avenue.'
+
+
+    Do not confuse 12 Newbridge Avenue with 21 Newbridge Avenue.'
+  likedStampThemes: 0100000005000000
+  dislikedStampThemes: 04000000

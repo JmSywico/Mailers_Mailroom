@@ -21,7 +21,7 @@ MonoBehaviour:
 
     Corporate legal consultant
 
-    
+
 
     Formal,
     polite, exhausted, and almost always busy.'
@@ -62,3 +62,5 @@ MonoBehaviour:
 
     His
     unclaimed packages often begin to stack.'
+  likedStampThemes: 0400000000000000
+  dislikedStampThemes: 01000000

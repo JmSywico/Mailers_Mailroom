@@ -17,13 +17,13 @@ MonoBehaviour:
   portrait: {fileID: 0}
   summary: 'Newlywed couple
 
-    
+
 
     Elliot is Filipino.
 
     Mara is Canadian-Filipina.
 
-    
+
 
     They
     recently moved to Hiraya Town and are still settling into their new home.'
@@ -58,19 +58,21 @@ MonoBehaviour:
     sent to their previous city'
   deliveryNotes: 'Their previous address was:
 
-    
+
 
     21 Newbridge Avenue
 
     Westbridge
     City
 
-    
+
 
     Mara may still receive mail under the surname Bennett.
 
-    
+
 
     Check
     the town carefully and do not confuse their address with Cass at 12 Newbridge
     Avenue.'
+  likedStampThemes: 0300000002000000
+  dislikedStampThemes: 04000000

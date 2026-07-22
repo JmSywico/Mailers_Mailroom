@@ -1,3 +1,4 @@
+using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(
@@ -41,6 +42,15 @@ public sealed class ResidentProfileData : ScriptableObject
     [SerializeField]
     private string deliveryNotes;
 
+    [Header("Stamp Preferences")]
+    [SerializeField]
+    private List<StampTheme> likedStampThemes =
+        new List<StampTheme>();
+
+    [SerializeField]
+    private List<StampTheme> dislikedStampThemes =
+        new List<StampTheme>();
+
     public string ResidentId => residentId;
     public string DisplayName => displayName;
     public Sprite Portrait => portrait;
@@ -50,4 +60,16 @@ public sealed class ResidentProfileData : ScriptableObject
     public string Likes => likes;
     public string Dislikes => dislikes;
     public string DeliveryNotes => deliveryNotes;
+
+    public int GetStampPreferenceScore(
+        StampTheme stampTheme)
+    {
+        if (likedStampThemes.Contains(stampTheme))
+            return 1;
+
+        if (dislikedStampThemes.Contains(stampTheme))
+            return -1;
+
+        return 0;
+    }
 }
