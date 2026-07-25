@@ -127,9 +127,9 @@ public sealed class DraggableMailItem :
         isDragging = false;
 
         transform.SetParent(
-            destination.SnapPoint,
-            false
-        );
+       destination.PlacementArea,
+       false
+   );
 
         rectTransform.anchorMin =
             new Vector2(0.5f, 0.5f);
@@ -151,6 +151,14 @@ public sealed class DraggableMailItem :
 
         canvasGroup.alpha = 1.0f;
         canvasGroup.blocksRaycasts = false;
+
+        MailItemVisualState visualState =
+            GetComponent<MailItemVisualState>();
+
+        if (visualState != null)
+        {
+            visualState.ApplyDeliveredState();
+        }
 
         Sorted?.Invoke(this);
 

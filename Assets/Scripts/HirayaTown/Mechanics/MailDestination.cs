@@ -1,52 +1,61 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public sealed class MailDestination : MonoBehaviour, IDropHandler
+public sealed class MailDestination :
+    MonoBehaviour,
+    IDropHandler
 {
     [SerializeField]
     private string destinationId;
 
     [SerializeField]
-    private RectTransform snapPoint;
+    private RectTransform placementArea;
 
-    public string DestinationId => destinationId;
+    public string DestinationId =>
+        destinationId;
 
-    public RectTransform SnapPoint
+    public RectTransform PlacementArea
     {
         get
         {
-            if (snapPoint != null)
-                return snapPoint;
+            if (placementArea != null)
+                return placementArea;
 
             return transform as RectTransform;
         }
     }
 
-    public void OnDrop(PointerEventData eventData)
+    public void OnDrop(
+        PointerEventData eventData)
     {
         if (eventData.pointerDrag == null)
             return;
 
         DraggableMailItem mailItem =
-            eventData.pointerDrag.GetComponent<DraggableMailItem>();
+            eventData.pointerDrag
+                .GetComponent<DraggableMailItem>();
 
         if (mailItem == null)
             return;
 
         bool wasAccepted =
-            mailItem.TryPlaceAtDestination(this);
+            mailItem.TryPlaceAtDestination(
+                this
+            );
 
         if (wasAccepted)
         {
             Debug.Log(
-                $"{mailItem.MailItemId} sorted into {destinationId}.",
+                $"{mailItem.MailItemId} sorted into " +
+                $"{destinationId}.",
                 this
             );
         }
         else
         {
             Debug.LogWarning(
-                $"{mailItem.MailItemId} does not belong in {destinationId}.",
+                $"{mailItem.MailItemId} does not belong " +
+                $"in {destinationId}.",
                 this
             );
         }

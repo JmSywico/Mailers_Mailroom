@@ -1,3 +1,4 @@
+using System;
 using TMPro;
 using UnityEngine;
 
@@ -7,18 +8,37 @@ public sealed class MailInspectionController : MonoBehaviour
     [SerializeField]
     private GameObject inspectionPanel;
 
-    [Header("Displayed Information")]
     [SerializeField]
-    private TMP_Text mailTypeText;
+    private TMP_Text inspectionTitleText;
+
+    [Header("Letter Preview")]
+    [SerializeField]
+    private GameObject letterPreview;
 
     [SerializeField]
-    private TMP_Text recipientText;
+    private TMP_Text letterMailTypeText;
 
     [SerializeField]
-    private TMP_Text addressText;
+    private TMP_Text letterRecipientText;
 
     [SerializeField]
-    private TMP_Text detailsText;
+    private TMP_Text letterAddressText;
+
+    [SerializeField]
+    private TMP_Text letterDetailsText;
+
+    [Header("Package Preview")]
+    [SerializeField]
+    private GameObject packagePreview;
+
+    [SerializeField]
+    private TMP_Text packageRecipientText;
+
+    [SerializeField]
+    private TMP_Text packageAddressText;
+
+    [SerializeField]
+    private TMP_Text packageDetailsText;
 
     public bool IsOpen =>
         inspectionPanel != null &&
@@ -45,36 +65,43 @@ public sealed class MailInspectionController : MonoBehaviour
             return;
         }
 
-        if (mailTypeText != null)
+        bool isPackage =
+            string.Equals(
+                mailType?.Trim(),
+                "PACKAGE",
+                StringComparison.OrdinalIgnoreCase
+            );
+
+        if (letterPreview != null)
+            letterPreview.SetActive(!isPackage);
+
+        if (packagePreview != null)
+            packagePreview.SetActive(isPackage);
+
+        if (inspectionTitleText != null)
         {
-            mailTypeText.text =
-                string.IsNullOrWhiteSpace(mailType)
-                    ? "MAIL"
-                    : mailType;
+            inspectionTitleText.text =
+                isPackage
+                    ? "INSPECT PACKAGE"
+                    : "INSPECT LETTER";
         }
 
-        if (recipientText != null)
+        if (isPackage)
         {
-            recipientText.text =
-                string.IsNullOrWhiteSpace(recipient)
-                    ? "Unknown Recipient"
-                    : recipient;
+            ShowPackage(
+                recipient,
+                address,
+                details
+            );
         }
-
-        if (addressText != null)
+        else
         {
-            addressText.text =
-                string.IsNullOrWhiteSpace(address)
-                    ? "No address shown"
-                    : address;
-        }
-
-        if (detailsText != null)
-        {
-            detailsText.text =
-                string.IsNullOrWhiteSpace(details)
-                    ? "No additional markings."
-                    : details;
+            ShowLetter(
+                mailType,
+                recipient,
+                address,
+                details
+            );
         }
 
         inspectionPanel.SetActive(true);
@@ -84,5 +111,74 @@ public sealed class MailInspectionController : MonoBehaviour
     {
         if (inspectionPanel != null)
             inspectionPanel.SetActive(false);
+    }
+
+    private void ShowLetter(
+        string mailType,
+        string recipient,
+        string address,
+        string details)
+    {
+        if (letterMailTypeText != null)
+        {
+            letterMailTypeText.text =
+                string.IsNullOrWhiteSpace(mailType)
+                    ? "LETTER"
+                    : mailType;
+        }
+
+        if (letterRecipientText != null)
+        {
+            letterRecipientText.text =
+                string.IsNullOrWhiteSpace(recipient)
+                    ? "Unknown Recipient"
+                    : recipient;
+        }
+
+        if (letterAddressText != null)
+        {
+            letterAddressText.text =
+                string.IsNullOrWhiteSpace(address)
+                    ? "No address shown"
+                    : address;
+        }
+
+        if (letterDetailsText != null)
+        {
+            letterDetailsText.text =
+                string.IsNullOrWhiteSpace(details)
+                    ? "No additional markings."
+                    : details;
+        }
+    }
+
+    private void ShowPackage(
+        string recipient,
+        string address,
+        string details)
+    {
+        if (packageRecipientText != null)
+        {
+            packageRecipientText.text =
+                string.IsNullOrWhiteSpace(recipient)
+                    ? "Unknown Recipient"
+                    : $"TO:\n{recipient}";
+        }
+
+        if (packageAddressText != null)
+        {
+            packageAddressText.text =
+                string.IsNullOrWhiteSpace(address)
+                    ? "No address shown"
+                    : address;
+        }
+
+        if (packageDetailsText != null)
+        {
+            packageDetailsText.text =
+                string.IsNullOrWhiteSpace(details)
+                    ? "No visible package markings."
+                    : details;
+        }
     }
 }

@@ -1,54 +1,61 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public sealed class MailLevelManager : MonoBehaviour
 {
-    [Header("Level Mail")]
-    [SerializeField]
-    private List<DraggableMailItem> mailItems =
-        new List<DraggableMailItem>();
-
     [Header("UI")]
     [SerializeField]
     private TMP_Text progressText;
 
     [SerializeField]
+    private TMP_Text stampScoreText;
+
+    [SerializeField]
     private GameObject levelCompletePanel;
 
+    private readonly List<DraggableMailItem> mailItems =
+        new List<DraggableMailItem>();
+
     private int sortedMailCount;
+    private int totalStampScore;
 
-    private void Start()
+    public int SortedMailCount => sortedMailCount;
+    public int TotalMailCount => mailItems.Count;
+    public int TotalStampScore => totalStampScore;
+
+    public void ConfigureLevel(
+        List<DraggableMailItem> newMailItems)
     {
-        sortedMailCount = 0;
+        UnsubscribeFromMailItems();
 
-        foreach (DraggableMailItem mailItem in mailItems)
+        mailItems.Clear();
+
+        if (newMailItems != null)
         {
-            if (mailItem == null)
-                continue;
+            foreach (DraggableMailItem mailItem in newMailItems)
+            {
+                if (mailItem == null)
+                    continue;
 
-            mailItem.Sorted += HandleMailSorted;
-
-            if (mailItem.IsSorted)
-                sortedMailCount++;
+                mailItems.Add(mailItem);
+                mailItem.Sorted += HandleMailSorted;
+            }
         }
+
+        sortedMailCount = 0;
+        totalStampScore = 0;
 
         if (levelCompletePanel != null)
             levelCompletePanel.SetActive(false);
 
         UpdateProgressText();
+        UpdateStampScoreText();
     }
 
     private void OnDestroy()
     {
-        foreach (DraggableMailItem mailItem in mailItems)
-        {
-            if (mailItem == null)
-                continue;
-
-            mailItem.Sorted -= HandleMailSorted;
-        }
+        UnsubscribeFromMailItems();
     }
 
     private void HandleMailSorted(
@@ -56,10 +63,39 @@ public sealed class MailLevelManager : MonoBehaviour
     {
         sortedMailCount++;
 
+        StampableMailItem stampableMailItem =
+            sortedMailItem.GetComponent<StampableMailItem>();
+
+        if (stampableMailItem != null)
+        {
+            int stampScore =
+                stampableMailItem.GetStampScore();
+
+            totalStampScore += stampScore;
+
+            Debug.Log(
+                $"{sortedMailItem.MailItemId} stamp score: " +
+                $"{stampScore}. Total: {totalStampScore}.",
+                sortedMailItem
+            );
+        }
+
         UpdateProgressText();
+        UpdateStampScoreText();
 
         if (sortedMailCount >= mailItems.Count)
             CompleteLevel();
+    }
+
+    private void CompleteLevel()
+    {
+        if (levelCompletePanel != null)
+            levelCompletePanel.SetActive(true);
+
+        Debug.Log(
+            $"Day completed with stamp score: {totalStampScore}.",
+            this
+        );
     }
 
     private void UpdateProgressText()
@@ -71,21 +107,23 @@ public sealed class MailLevelManager : MonoBehaviour
             $"{sortedMailCount} / {mailItems.Count} SORTED";
     }
 
-    private void CompleteLevel()
+    private void UpdateStampScoreText()
     {
-        if (levelCompletePanel != null)
-            levelCompletePanel.SetActive(true);
+        if (stampScoreText == null)
+            return;
 
-        Debug.Log("Level completed.", this);
+        stampScoreText.text =
+            $"STAMP SCORE: {totalStampScore}";
     }
 
-    public void RestartLevel()
+    private void UnsubscribeFromMailItems()
     {
-        Scene currentScene =
-            SceneManager.GetActiveScene();
+        foreach (DraggableMailItem mailItem in mailItems)
+        {
+            if (mailItem == null)
+                continue;
 
-        SceneManager.LoadScene(
-            currentScene.buildIndex
-        );
+            mailItem.Sorted -= HandleMailSorted;
+        }
     }
 }
