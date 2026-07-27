@@ -22,6 +22,9 @@ public sealed class DayManager : MonoBehaviour
     private MailLevelManager levelManager;
 
     [SerializeField]
+    private StampSelectionController stampSelectionController;
+
+    [SerializeField]
     private TMP_Text dayText;
 
     [Header("Days")]
@@ -36,6 +39,9 @@ public sealed class DayManager : MonoBehaviour
 
     public int CurrentDayIndex =>
         currentDayIndex;
+
+    public bool HasNextDay =>
+        currentDayIndex < days.Count - 1;
 
     private void Start()
     {
@@ -78,12 +84,30 @@ public sealed class DayManager : MonoBehaviour
                     : currentDay.dayName;
         }
 
+        if (stampSelectionController != null)
+            stampSelectionController.ClearSelection();
+
         if (levelManager != null)
         {
             levelManager.ConfigureLevel(
                 currentDay.mailItems
             );
         }
+    }
+
+    public void LoadNextDay()
+    {
+        if (!HasNextDay)
+        {
+            Debug.Log(
+                "There are no more configured days.",
+                this
+            );
+
+            return;
+        }
+
+        LoadDay(currentDayIndex + 1);
     }
 
     private void DisableAllDayObjects()
