@@ -34,10 +34,7 @@ MonoBehaviour:
 
     Mara Bennett-Villareal
 
-    Mara Bennett
-
-    Mr.
-    and Mrs. Villareal'
+    Mr. and Mrs. Villareal'
   likes: 'Home decorations
 
     Cooking together
@@ -56,23 +53,7 @@ MonoBehaviour:
 
     Mail
     sent to their previous city'
-  deliveryNotes: 'Their previous address was:
-
-
-
-    21 Newbridge Avenue
-
-    Westbridge
-    City
-
-
-
-    Mara may still receive mail under the surname Bennett.
-
-
-
-    Check
-    the town carefully and do not confuse their address with Cass at 12 Newbridge
-    Avenue.'
+  deliveryNotes: 'Check the town carefully and do not confuse their address with
+    Cass at 12 Newbridge Avenue.'
   likedStampThemes: 0300000002000000
   dislikedStampThemes: 04000000

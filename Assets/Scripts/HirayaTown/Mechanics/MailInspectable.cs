@@ -31,6 +31,7 @@ public sealed class MailInspectable :
 
     private DraggableMailItem draggableMailItem;
     private StampableMailItem stampableMailItem;
+    private MailDeliveryAttemptTracker deliveryAttemptTracker;
 
     private void Awake()
     {
@@ -39,6 +40,9 @@ public sealed class MailInspectable :
 
         stampableMailItem =
             GetComponent<StampableMailItem>();
+
+        deliveryAttemptTracker =
+            GetComponent<MailDeliveryAttemptTracker>();
     }
 
     public void OnPointerClick(
@@ -56,7 +60,15 @@ public sealed class MailInspectable :
             return;
         }
 
-        if (stampSelectionController != null &&
+        MailDeliveryAttemptTracker attemptTracker =
+            GetDeliveryAttemptTracker();
+
+        bool requiresReinspection =
+            attemptTracker != null &&
+            attemptTracker.RequiresReinspection;
+
+        if (!requiresReinspection &&
+            stampSelectionController != null &&
             stampSelectionController
                 .HasSelectedStamp &&
             stampableMailItem != null)
@@ -93,5 +105,22 @@ public sealed class MailInspectable :
             address,
             details
         );
+
+        if (inspectionController.IsOpen &&
+            attemptTracker != null)
+        {
+            attemptTracker.MarkInspected();
+        }
+    }
+
+    private MailDeliveryAttemptTracker GetDeliveryAttemptTracker()
+    {
+        if (deliveryAttemptTracker == null)
+        {
+            deliveryAttemptTracker =
+                GetComponent<MailDeliveryAttemptTracker>();
+        }
+
+        return deliveryAttemptTracker;
     }
 }

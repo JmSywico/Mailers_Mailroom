@@ -53,6 +53,13 @@ public sealed class MailDestination :
         }
         else
         {
+            MailDeliveryAttemptTracker attemptTracker =
+                eventData.pointerDrag
+                    .GetComponent<MailDeliveryAttemptTracker>();
+
+            if (attemptTracker != null)
+                attemptTracker.RecordWrongAttempt();
+
             Debug.LogWarning(
                 $"{mailItem.MailItemId} does not belong " +
                 $"in {destinationId}.",

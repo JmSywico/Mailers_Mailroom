@@ -32,9 +32,7 @@ MonoBehaviour:
 
     Bash Cortez
 
-    Mr. Cortez
-
-    S.C.'
+    Mr. Cortez'
   likes: 'Orderly documents
 
     Strong coffee
@@ -57,10 +55,6 @@ MonoBehaviour:
     and office supplies.
 
 
-    Some personal packages may only use the initials S.C.
-
-
-    His
-    unclaimed packages often begin to stack.'
+    His unclaimed packages often begin to stack.'
   likedStampThemes: 0400000000000000
   dislikedStampThemes: 01000000

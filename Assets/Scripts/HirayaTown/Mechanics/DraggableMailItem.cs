@@ -21,6 +21,7 @@ public sealed class DraggableMailItem :
 
     private RectTransform rectTransform;
     private CanvasGroup canvasGroup;
+    private MailDeliveryAttemptTracker deliveryAttemptTracker;
 
     private Transform startingParent;
     private int startingSiblingIndex;
@@ -41,6 +42,9 @@ public sealed class DraggableMailItem :
 
         canvasGroup =
             GetComponent<CanvasGroup>();
+
+        deliveryAttemptTracker =
+            GetComponent<MailDeliveryAttemptTracker>();
     }
 
     public void OnBeginDrag(
@@ -48,6 +52,16 @@ public sealed class DraggableMailItem :
     {
         if (isSorted)
             return;
+
+        MailDeliveryAttemptTracker attemptTracker =
+            GetDeliveryAttemptTracker();
+
+        if (attemptTracker != null &&
+            !attemptTracker.CanDrag)
+        {
+            attemptTracker.NotifyDragBlocked();
+            return;
+        }
 
         if (dragLayer == null)
         {
@@ -209,5 +223,16 @@ public sealed class DraggableMailItem :
 
         rectTransform.localScale =
             Vector3.one;
+    }
+
+    private MailDeliveryAttemptTracker GetDeliveryAttemptTracker()
+    {
+        if (deliveryAttemptTracker == null)
+        {
+            deliveryAttemptTracker =
+                GetComponent<MailDeliveryAttemptTracker>();
+        }
+
+        return deliveryAttemptTracker;
     }
 }

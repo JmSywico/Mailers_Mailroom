@@ -27,7 +27,7 @@ MonoBehaviour:
   address: '18 Hearthstone Drive
 
     Hiraya Town'
-  aliases: "Beatrice Aguinaldo\nTita Bea\nBea Aguinaldo\nFor Biscuit\u2019s Human"
+  aliases: "Beatrice Aguinaldo\nTita Bea\nBea Aguinaldo"
   likes: 'Baking
 
     Neighborhood cats
@@ -46,9 +46,6 @@ MonoBehaviour:
 
     Overly
     fancy packaging'
-  deliveryNotes: "Her cats are Biscuit, Pepper, and Mingming.\n\nSome deliveries
-    may be addressed directly to one of the cats or use labels such as \u201CFor
-    Biscuit\u2019s Human.\u201D\n\nBaking-supply labels and cat symbols are common
-    clues."
+  deliveryNotes: Baking-supply labels and cat symbols are common clues.
   likedStampThemes: 0600000005000000
   dislikedStampThemes: 02000000
