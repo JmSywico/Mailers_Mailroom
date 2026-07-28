@@ -21,6 +21,7 @@ public sealed class MailDeliveryAttemptTracker : MonoBehaviour
 
     private int consecutiveWrongAttempts;
     private bool requiresReinspection;
+    private bool hasShownBlockedDragReminder;
 
     public int ConsecutiveWrongAttempts =>
         consecutiveWrongAttempts;
@@ -52,6 +53,7 @@ public sealed class MailDeliveryAttemptTracker : MonoBehaviour
             Mathf.Max(1, wrongAttemptsBeforeReinspection))
         {
             requiresReinspection = true;
+            hasShownBlockedDragReminder = false;
 
             RequestFeedback(
                 reinspectionRequiredMessage
@@ -74,6 +76,7 @@ public sealed class MailDeliveryAttemptTracker : MonoBehaviour
 
         consecutiveWrongAttempts = 0;
         requiresReinspection = false;
+        hasShownBlockedDragReminder = false;
 
         if (wasReinspectionRequired)
             ReinspectionCleared?.Invoke(this);
@@ -83,6 +86,11 @@ public sealed class MailDeliveryAttemptTracker : MonoBehaviour
     {
         if (!requiresReinspection)
             return;
+
+        if (hasShownBlockedDragReminder)
+            return;
+
+        hasShownBlockedDragReminder = true;
 
         RequestFeedback(
             reinspectionRequiredMessage

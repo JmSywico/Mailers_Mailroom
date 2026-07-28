@@ -172,23 +172,14 @@ public sealed class ResidentDirectoryController : MonoBehaviour
         ResidentProfileData resident)
     {
         return
-            $"<b>PROFILE</b>\n" +
+            $"<b>BASIC INFO</b>\n" +
             $"{resident.Summary}\n\n" +
 
             $"<b>ADDRESS</b>\n" +
             $"{resident.Address}\n\n" +
 
-            $"<b>ALIASES AND OTHER NAMES</b>\n" +
-            $"{resident.Aliases}\n\n" +
-
-            $"<b>LIKES</b>\n" +
-            $"{resident.Likes}\n\n" +
-
-            $"<b>DISLIKES</b>\n" +
-            $"{resident.Dislikes}\n\n" +
-
-            $"<b>DELIVERY NOTES</b>\n" +
-            $"{resident.DeliveryNotes}";
+            $"<b>RESIDENT NOTES</b>\n" +
+            $"No extra resident notes discovered yet.";
     }
 
     private string BuildProgressiveProfileText(
@@ -199,7 +190,7 @@ public sealed class ResidentDirectoryController : MonoBehaviour
             new StringBuilder();
 
         profileText
-            .Append("<b>PROFILE</b>\n")
+            .Append("<b>BASIC INFO</b>\n")
             .Append(GetDisplayValue(
                 resident.Summary,
                 "No profile details recorded."
@@ -211,32 +202,19 @@ public sealed class ResidentDirectoryController : MonoBehaviour
                 "No address recorded."
             ))
             .Append("\n\n")
-            .Append("<b>ALIASES AND OTHER NAMES</b>\n")
-            .Append(GetDisplayValue(
-                resident.Aliases,
-                "No aliases recorded."
-            ))
-            .Append("\n\n")
-            .Append("<b>LIKES</b>\n")
-            .Append(GetDisplayValue(
-                resident.Likes,
-                "No likes recorded."
-            ))
-            .Append("\n\n")
-            .Append("<b>DISLIKES</b>\n")
-            .Append(GetDisplayValue(
-                resident.Dislikes,
-                "No dislikes recorded."
-            ))
-            .Append("\n\n")
-            .Append("<b>DELIVERY NOTES</b>\n")
-            .Append(GetDisplayValue(
-                resident.DeliveryNotes,
-                "No delivery notes recorded."
-            ))
-            .Append("\n\n")
-            .Append("<b>RESIDENT NOTES</b>\n");
+            .Append("<b>RESIDENT NOTES</b>\n")
+            .Append(BuildResidentNotesText(
+                resident,
+                activeKnowledgeManager
+            ));
 
+        return profileText.ToString();
+    }
+
+    private string BuildResidentNotesText(
+        ResidentProfileData resident,
+        ResidentKnowledgeManager activeKnowledgeManager)
+    {
         List<ResidentKnowledgeNote> unlockedNotes =
             activeKnowledgeManager
                 .GetUnlockedNotesForResident(
@@ -245,12 +223,11 @@ public sealed class ResidentDirectoryController : MonoBehaviour
 
         if (unlockedNotes.Count == 0)
         {
-            profileText.Append(
-                "No extra resident notes discovered yet."
-            );
-
-            return profileText.ToString();
+            return "No extra resident notes discovered yet.";
         }
+
+        StringBuilder notesText =
+            new StringBuilder();
 
         foreach (ResidentKnowledgeNote note in unlockedNotes)
         {
@@ -260,13 +237,13 @@ public sealed class ResidentDirectoryController : MonoBehaviour
                 continue;
             }
 
-            profileText
+            notesText
                 .Append("- ")
                 .Append(note.DisplayText)
                 .Append('\n');
         }
 
-        return profileText.ToString().TrimEnd();
+        return notesText.ToString().TrimEnd();
     }
 
     private void HandleNoteUnlocked(
